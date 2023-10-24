@@ -1,9 +1,10 @@
 from flask import Flask, request, jsonify
-
+from flask_cors import CORS
 from db import create_transactions, get_aggregate, get_transactions, \
     remove_transaction, tally_transactions
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/transactions', methods=['POST'])
 def add_transactions():
